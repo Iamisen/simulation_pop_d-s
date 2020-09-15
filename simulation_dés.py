@@ -1,9 +1,10 @@
 #coding:utf-8
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import random
 import tkinter
 
-number = 0#valeur par défaut
+number = 200#valeur par défaut
 
 def sim():
     nombre_de_départ = number
