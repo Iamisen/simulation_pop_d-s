@@ -19,10 +19,12 @@ def sim():
 def graph(x, y):
     X=range(0,x)
     Y=y
-    plt.axis([0,x,0,Y[0]+10])
-    plt.plot(X,Y,'+', color='black')
-    plt.grid()
-    plt.show()
+    graph = plt.Figure(figsize=(5,3))
+    graph.add_subplot(111).plot(X,Y,'+', color='black')
+    graph.add_subplot(111).axis([0,x,0,Y[0]*1.1])
+    graph.add_subplot(111).grid()
+    dis = FigureCanvasTkAgg(graph, win)
+    dis.get_tk_widget().place(x=30, y=190)
 
 def collect_entry(*args):
     global number
