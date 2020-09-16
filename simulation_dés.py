@@ -4,24 +4,27 @@ import matplotlib.pyplot as plt
 import random
 import tkinter
 
-number = 200#valeur par défaut
+number = int()
 
 def sim():
     nombre_de_départ = number
     liste = []
     while nombre_de_départ > 0:
+        liste.append(nombre_de_départ)
         for i in range(nombre_de_départ):
             i = random.randint(1,6)
             if i == 6: 
                 nombre_de_départ -= 1
-        liste.append(nombre_de_départ)
     graph(len(liste), liste)
 
 def graph(x, y):
     X=range(0,x)
     Y=y
     graph = plt.Figure(figsize=(5,3))
-    graph.add_subplot(111).plot(X,Y,'+', color='black')
+    graph.suptitle('Représentation du nombre de dés présents à chaque lancer')
+    graph.add_subplot(111).set_xlabel('Nombre de lancers')
+    graph.add_subplot(111).set_ylabel('Nombre de dés')
+    graph.add_subplot(111).plot(X,Y,'.', color='grey')
     graph.add_subplot(111).axis([0,x,0,Y[0]*1.1])
     graph.add_subplot(111).grid()
     dis = FigureCanvasTkAgg(graph, win)
